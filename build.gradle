@@ -105,8 +105,16 @@ shadowJar {
 processResources {
     inputs.property 'version', project.version
 
-    filesMatching('META-INF/mods.toml') {
-        expand version: project.version
+    if (isNeo) {
+        filesMatching('META-INF/neoforge.mods.toml') {
+            expand version: project.version
+        }
+        exclude("META-INF/mods.toml")
+    } else {
+        filesMatching('META-INF/mods.toml') {
+            expand version: project.version
+        }
+        exclude("META-INF/neoforge.mods.toml")
     }
 }
 
