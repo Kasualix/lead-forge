@@ -119,6 +119,7 @@ String currentChangeLog = file("CHANGELOG.md").getText("UTF-8")
 def javaVersions = isNeo ? ["Java 21", "Java 22"] : (isOld ? ["Java 8", "Java 17", "Java 21", "Java 22"] : ["Java 17", "Java 21", "Java 22"])
 
 tasks.register("publishCurseForge", TaskPublishCurseForge) {
+    if (cf_project_id == "") throw new UnsupportedOperationException();
     apiToken = System.getenv("CURSEFORGE_TOKEN")
     disableVersionDetection()
 
