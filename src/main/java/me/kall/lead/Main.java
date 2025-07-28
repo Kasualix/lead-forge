@@ -11,6 +11,6 @@ public final class Main {
     public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 
     public Main() {
-
+        //IEventBus modEventBus, Dist dist, ModContainer container
     }
 }
